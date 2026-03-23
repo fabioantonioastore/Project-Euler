@@ -58,17 +58,6 @@ largest_product = 0
 for index in range(1, (GRID_LENGHT ** 2) + 1):
     y = (index // GRID_LENGHT) + 1
     x = index - (GRID_LENGHT * (y - 1))
-    product = get_right_product(x, y)
-    if product > largest_product:
-        largest_product = product
-    product = get_down_product(x, y)
-    if product > largest_product:
-        largest_product = product
-    product = get_down_diagonal_product(x, y)
-    if product > largest_product:
-        largest_product = product
-    product = get_up_diagonal_product(x, y)
-    if product > largest_product:
-        largest_product = product
+    largest_product = max(largest_product, get_right_product(x, y), get_down_product(x, y), get_down_diagonal_product(x, y), get_up_diagonal_product(x, y))
 
 print(largest_product)
