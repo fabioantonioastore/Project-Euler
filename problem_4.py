@@ -1,4 +1,4 @@
-RANGE_INDEX = 10 ** 3
+RANGE_INDEX = 10**3
 
 
 def total_digits(number: int) -> int:
@@ -17,7 +17,7 @@ def digit(number: int, index: int) -> int:
     if number_lenght == 1:
         return number
     for i in range(number_lenght - 1, 0, -1):
-        power = 10 ** i
+        power = 10**i
         multiple = number // power
         number -= multiple * power
     return number

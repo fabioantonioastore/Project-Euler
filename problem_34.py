@@ -33,7 +33,7 @@ def digit(number: int, index: int, lenght: int) -> int:
     if lenght == 1:
         return number
     for i in range(lenght - 1, 0, -1):
-        power = 10 ** i
+        power = 10**i
         multiple = number // power
         number -= multiple * power
     return number

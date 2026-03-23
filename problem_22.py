@@ -23,8 +23,8 @@ names: list[str] = []
 with open("problem_22.txt", "r") as file:
     for line in file:
         for name in line.split(","):
-            name = name.removeprefix("\"")
-            name = name.removesuffix("\"")
+            name = name.removeprefix('"')
+            name = name.removesuffix('"')
             names.append(name)
 
 

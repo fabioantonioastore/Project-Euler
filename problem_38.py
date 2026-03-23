@@ -1,5 +1,5 @@
 MAX_LENGHT = 9
-INTEGER_UPPER_BOUND = 10 ** 4
+INTEGER_UPPER_BOUND = 10**4
 
 
 def is_unique(string: str) -> bool:

@@ -1,4 +1,4 @@
-RANGE = 10 ** 6
+RANGE = 10**6
 prime_cache = {1: False, 2: True}
 
 
@@ -32,7 +32,7 @@ def digit(number: int, index: int, number_lenght: int) -> int:
     if number_lenght == 1:
         return number
     for i in range(number_lenght - 1, 0, -1):
-        power = 10 ** i
+        power = 10**i
         multiple = number // power
         number -= multiple * power
     return number
@@ -41,8 +41,10 @@ def digit(number: int, index: int, number_lenght: int) -> int:
 class Prime:
     def __init__(self, number: int) -> None:
         self.number_lenght = lenght(number)
-        self.position: list[int] = [digit(number, i, self.number_lenght) for i in range(self.number_lenght)]
-    
+        self.position: list[int] = [
+            digit(number, i, self.number_lenght) for i in range(self.number_lenght)
+        ]
+
     def number(self) -> int:
         result = 0
         for i in range(self.number_lenght):
@@ -60,7 +62,7 @@ class Prime:
             if not is_prime(self.number()):
                 return False
         return True
-    
+
 
 total = 0
 for number in range(1, RANGE):

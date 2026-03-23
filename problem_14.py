@@ -1,4 +1,4 @@
-LIMIT = 10 ** 6
+LIMIT = 10**6
 collatz_cache: dict[int, int] = {1: 1}
 
 

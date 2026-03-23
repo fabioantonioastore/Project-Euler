@@ -1,4 +1,4 @@
-LIMIT = (10 ** 3) + 1
+LIMIT = (10**3) + 1
 
 
 def calc_upper_bound(limit: int) -> int:

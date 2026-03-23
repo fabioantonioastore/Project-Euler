@@ -1,4 +1,4 @@
-MAX_FIBONACCI_VALUE = 4 * (10 ** 6)
+MAX_FIBONACCI_VALUE = 4 * (10**6)
 fibonacci_cache = {0: 1, 1: 1}
 
 

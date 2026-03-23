@@ -1,4 +1,4 @@
-SEQUENCE_LENGHT = 10 ** 3
+SEQUENCE_LENGHT = 10**3
 fibonacci_cache = {1: 1, 2: 1}
 
 

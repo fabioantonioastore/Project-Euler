@@ -13,7 +13,7 @@ def digit(number: int, index: int, lenght: int) -> int:
     if lenght == 1:
         return number
     for i in range(lenght - 1, 0, -1):
-        power = 10 ** i
+        power = 10**i
         multiple = number // power
         number -= multiple * power
     return number
@@ -34,9 +34,9 @@ def is_same_digits(x: int) -> bool:
         return False
     x2_set = number_to_set(x2, x2_lenght)
     if (
-        not x2_set == number_to_set(3 * x, x2_lenght) or
-        not x2_set == number_to_set(4 * x, x2_lenght) or
-        not x2_set == number_to_set(x5, x2_lenght)
+        not x2_set == number_to_set(3 * x, x2_lenght)
+        or not x2_set == number_to_set(4 * x, x2_lenght)
+        or not x2_set == number_to_set(x5, x2_lenght)
     ):
         return False
     return True

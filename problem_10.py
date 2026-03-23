@@ -1,4 +1,4 @@
-RANGE = 2 * (10 ** 6)
+RANGE = 2 * (10**6)
 
 
 def is_prime(number: int) -> bool:

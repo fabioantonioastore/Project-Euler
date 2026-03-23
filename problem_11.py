@@ -1,5 +1,6 @@
 GRID = [
-    int(number) for number in """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
+    int(number)
+    for number in """08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
 81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
 52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
@@ -32,32 +33,58 @@ def get_element_by_x_y(x: int, y: int) -> int:
 
 def get_right_product(x: int, y: int) -> int:
     if x <= GRID_LENGHT - 3 and x != 0:
-        return get_element_by_x_y(x, y) * get_element_by_x_y(x + 1, y) * get_element_by_x_y(x + 2, y) * get_element_by_x_y(x + 3, y)
+        return (
+            get_element_by_x_y(x, y)
+            * get_element_by_x_y(x + 1, y)
+            * get_element_by_x_y(x + 2, y)
+            * get_element_by_x_y(x + 3, y)
+        )
     return 0
 
 
 def get_down_product(x: int, y: int) -> int:
     if y <= GRID_LENGHT - 4:
-        return get_element_by_x_y(x, y) * get_element_by_x_y(x, y + 1) * get_element_by_x_y(x, y + 2) * get_element_by_x_y(x, y + 3)
+        return (
+            get_element_by_x_y(x, y)
+            * get_element_by_x_y(x, y + 1)
+            * get_element_by_x_y(x, y + 2)
+            * get_element_by_x_y(x, y + 3)
+        )
     return 0
 
 
 def get_up_diagonal_product(x: int, y: int) -> int:
     if x <= GRID_LENGHT - 3 and x != 0 and y >= 3:
-        return get_element_by_x_y(x, y) * get_element_by_x_y(x + 1, y - 1) * get_element_by_x_y(x + 2, y - 2) * get_element_by_x_y(x + 3, y - 3)
+        return (
+            get_element_by_x_y(x, y)
+            * get_element_by_x_y(x + 1, y - 1)
+            * get_element_by_x_y(x + 2, y - 2)
+            * get_element_by_x_y(x + 3, y - 3)
+        )
     return 0
 
 
 def get_down_diagonal_product(x: int, y: int) -> int:
     if x <= GRID_LENGHT - 3 and x != 0 and y <= GRID_LENGHT - 3:
-        return get_element_by_x_y(x, y) * get_element_by_x_y(x + 1, y + 1) * get_element_by_x_y(x + 2, y + 2) * get_element_by_x_y(x + 3, y + 3)
+        return (
+            get_element_by_x_y(x, y)
+            * get_element_by_x_y(x + 1, y + 1)
+            * get_element_by_x_y(x + 2, y + 2)
+            * get_element_by_x_y(x + 3, y + 3)
+        )
     return 0
 
 
 largest_product = 0
-for index in range(1, (GRID_LENGHT ** 2) + 1):
+for index in range(1, (GRID_LENGHT**2) + 1):
     y = (index // GRID_LENGHT) + 1
     x = index - (GRID_LENGHT * (y - 1))
-    largest_product = max(largest_product, get_right_product(x, y), get_down_product(x, y), get_down_diagonal_product(x, y), get_up_diagonal_product(x, y))
+    largest_product = max(
+        largest_product,
+        get_right_product(x, y),
+        get_down_product(x, y),
+        get_down_diagonal_product(x, y),
+        get_up_diagonal_product(x, y),
+    )
 
 print(largest_product)

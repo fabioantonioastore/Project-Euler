@@ -1,4 +1,4 @@
-LIMIT = (10 ** 4) + 1
+LIMIT = (10**4) + 1
 
 
 def is_prime(number: int) -> bool:

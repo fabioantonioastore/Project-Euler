@@ -1,4 +1,4 @@
-RANGE_INDEX = 10 ** 3
+RANGE_INDEX = 10**3
 multiples_sum = 0
 
 for n in range(1, RANGE_INDEX):

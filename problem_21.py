@@ -1,4 +1,4 @@
-RANGE = 10 ** 4
+RANGE = 10**4
 amicable_transform_cache = {220: 284}
 
 

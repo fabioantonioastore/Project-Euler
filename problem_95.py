@@ -1,6 +1,8 @@
-LIMIT = 10 ** 6
+LIMIT = 10**6
 amicable_transform_cache = {220: 284}
-amicable_chain_cache: dict[int, list[int] | None] = {12496: [14288, 15472, 14536, 14264]}
+amicable_chain_cache: dict[int, list[int] | None] = {
+    12496: [14288, 15472, 14536, 14264]
+}
 
 
 def proper_divisors(number: int) -> list[int]:
@@ -27,7 +29,7 @@ def amicable_transform(number: int) -> int:
         new_amicable += divisor
     amicable_transform_cache[number] = new_amicable
     return new_amicable
-        
+
 
 def create_chain(number: int) -> set[int] | None:
     chain = {number}

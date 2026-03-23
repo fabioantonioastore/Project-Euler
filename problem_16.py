@@ -1,4 +1,4 @@
-NUMBER = 2 ** (10 ** 3)
+NUMBER = 2 ** (10**3)
 
 
 def number_lenght(number: int) -> int:
@@ -11,9 +11,9 @@ def number_lenght(number: int) -> int:
 
 def digit(number: int, index: int, lenght: int) -> int:
     number //= 10 ** (lenght - index - 1)
-    lenght -= (lenght - index - 1)
+    lenght -= lenght - index - 1
     for i in range(lenght - 1, 0, -1):
-        power = 10 ** i
+        power = 10**i
         multiple = number // power
         number -= multiple * power
     return number

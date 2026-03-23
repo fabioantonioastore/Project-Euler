@@ -1,5 +1,5 @@
-LIMIT = 10 ** 6
-N_RANGE = 10 ** 2
+LIMIT = 10**6
+N_RANGE = 10**2
 factorial_cache = {0: 1, 1: 1}
 
 
@@ -38,5 +38,5 @@ def total_greater(number: int) -> int:
 total = 0
 for n in range(1, N_RANGE + 1):
     total += total_greater(n)
-    
+
 print(total)

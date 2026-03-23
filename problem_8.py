@@ -17,7 +17,7 @@ def digit(number: int, index: int) -> int:
     if number_length == 1:
         return number
     for i in range(number_length - 1, 0, -1):
-        power = 10 ** i
+        power = 10**i
         multiple = number // power
         number -= multiple * power
     return number

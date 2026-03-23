@@ -33,7 +33,7 @@ def total_month_day(month: int, year: int) -> int:
     return 31
 
 
-day = (DAY_INDEX + (days_between_years(EXAMPLE_YEAR, START_YEAR) % 7) % 7)
+day = DAY_INDEX + (days_between_years(EXAMPLE_YEAR, START_YEAR) % 7) % 7
 total_sundays = 0
 for year in range(START_YEAR, END_YEAR + 1):
     if day == 0:
