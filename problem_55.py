@@ -1,4 +1,4 @@
-LIMIT_RANGE = 10 ** 4
+LIMIT_RANGE = 10**4
 MAX_INTERATIONS = 49
 lychrel_cache: dict[int, bool] = {}
 
@@ -40,7 +40,7 @@ def reverse_number(number: int) -> int:
     reversed_number = 0
     for i in range(lenght):
         reversed_index = lenght - i - 1
-        reversed_number += digit(number, reversed_index, lenght) * (10 ** reversed_index)
+        reversed_number += digit(number, reversed_index, lenght) * (10**reversed_index)
     return reversed_number
 
 
@@ -55,7 +55,7 @@ def is_lychrel(number: int, interations: int = 0) -> bool:
         lychrel_cache[number] = is_lychrel(temp_number, interations + 1)
         return lychrel_cache[number]
     lychrel_cache[number] = True
-    return True 
+    return True
 
 
 total_lychrel = 0
