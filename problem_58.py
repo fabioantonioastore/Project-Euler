@@ -16,7 +16,7 @@ def is_prime(number: int) -> bool:
 
 def square_layer_primes(layer: int) -> int:
     square_lenght = 1 + (2 * layer)
-    max_number = square_lenght ** 2
+    max_number = square_lenght**2
     total_primes = 0
     if is_prime(1 + max_number - square_lenght):
         total_primes += 1

@@ -1,4 +1,4 @@
-LIMIT = 10 ** 3
+LIMIT = 10**3
 
 
 def is_a_solution(p: int, c: int) -> bool:
@@ -12,14 +12,14 @@ def is_a_solution(p: int, c: int) -> bool:
 
 def total_perimeter_solutions(perimeter: int) -> int:
     total_solutions = 0
-    for c in range(3, perimeter - 2):
+    for c in range(perimeter // 3, perimeter - 2):
         if is_a_solution(perimeter, c):
             total_solutions += 1
     return total_solutions
 
 
 solutions: dict[int, int] = {}
-for p in range(3, LIMIT + 1):
+for p in range(4, LIMIT + 1, 2):
     solutions[p] = total_perimeter_solutions(p)
 
 max_solution = (1, 1)

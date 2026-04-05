@@ -1,4 +1,4 @@
-LIMIT = 10 ** 3
+LIMIT = 10**3
 HUNDRED = len("hundred")
 THOUSAND = len("thousand")
 AND = len("and")
@@ -29,7 +29,7 @@ NUMBER_TO_NAME = {
     60: len("sixty"),
     70: len("seventy"),
     80: len("eighty"),
-    90: len("ninety")
+    90: len("ninety"),
 }
 
 
@@ -49,10 +49,18 @@ def number_letter_sum(number: int) -> int:
     if number in NUMBER_TO_NAME:
         return NUMBER_TO_NAME[number]
     if number < 100:
-        return NUMBER_TO_NAME[digit(number, 0, 2) * 10] + NUMBER_TO_NAME[digit(number, 1, 2)]
+        return (
+            NUMBER_TO_NAME[digit(number, 0, 2) * 10]
+            + NUMBER_TO_NAME[digit(number, 1, 2)]
+        )
     if number % 100 == 0:
-        return NUMBER_TO_NAME[(digit(number, 0 , 3))] + HUNDRED
-    return NUMBER_TO_NAME[digit(number, 0, 3)] + HUNDRED + AND + number_letter_sum(number % (10 ** 2))
+        return NUMBER_TO_NAME[(digit(number, 0, 3))] + HUNDRED
+    return (
+        NUMBER_TO_NAME[digit(number, 0, 3)]
+        + HUNDRED
+        + AND
+        + number_letter_sum(number % (10**2))
+    )
 
 
 total_letter_sum = 0

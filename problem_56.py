@@ -1,4 +1,4 @@
-LIMIT = 10 ** 2
+LIMIT = 10**2
 power_cache: dict[int, int] = {}
 
 
@@ -24,7 +24,7 @@ def digit(number: int, index: int, number_lenght: int) -> int:
     number //= 10 ** (number_lenght - index - 1)
     number_lenght -= number_lenght - index - 1
     for i in range(number_lenght - 1, 0, -1):
-        power = 10 ** i
+        power = 10**i
         multiple = number // power
         number -= multiple * power
     return number
