@@ -13,7 +13,7 @@ def is_prime(number: int) -> bool:
     return True
 
 
-def gen_permutation(number_set: list[int], permutation: int = 0, lenght: int = 9):
+def gen_permutation(number_set: list[int], permutation: int = 0, lenght: int = 9):  # type: ignore
     for number in number_set:
         temp_number_set = number_set.copy()
         temp_number_set.remove(number)
@@ -54,8 +54,8 @@ def is_pandigital(number: int) -> bool:
 
 
 largest_prime = 0
-for p in gen_permutation(DIGITS):
-    if p > largest_prime and is_pandigital(p) and is_prime(p):
-        largest_prime = p
+for permutation in gen_permutation(DIGITS):  # type: ignore
+    if permutation > largest_prime and is_pandigital(permutation) and is_prime(permutation):  # type: ignore
+        largest_prime = permutation  # type: ignore
 
-print(largest_prime)
+print(largest_prime)  # type: ignore
