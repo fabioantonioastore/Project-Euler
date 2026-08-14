@@ -13,7 +13,7 @@ def is_prime(n: int) -> bool:
 
 
 def formula(n: int, a: int, b: int) -> int:
-    return (n ** 2) + (a * n) + b 
+    return (n**2) + (a * n) + b
 
 
 def get_total_primes_from_formula(a: int, b: int) -> int:
@@ -31,24 +31,24 @@ def get_total_primes_from_formula(a: int, b: int) -> int:
 
 
 max_total_primes = 0
-coeficient = 0
+product = 0
 for a in range(1_000):
     for b in range(1_001):
         total = get_total_primes_from_formula(a=a, b=b)
         if total > max_total_primes:
             max_total_primes = total
-            coeficient = a * b
+            product = a * b
         total = get_total_primes_from_formula(a=a, b=-b)
         if total > max_total_primes:
             max_total_primes = total
-            coeficient = a * (-b)
+            product = a * (-b)
         total = get_total_primes_from_formula(a=-a, b=b)
         if total > max_total_primes:
             max_total_primes = total
-            coeficient = (-a) * b
+            product = (-a) * b
         total = get_total_primes_from_formula(a=-a, b=-b)
         if total > max_total_primes:
             max_total_primes = total
-            coeficient = (-a) * (-b)
+            product = (-a) * (-b)
 
-print(coeficient)
+print(product)

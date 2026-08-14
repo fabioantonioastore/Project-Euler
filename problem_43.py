@@ -1,7 +1,7 @@
 NUMBER_LENGHT = 10
 
 
-def _pandigital_number_generator(number: int, digits: set[int]): # type: ignore
+def _pandigital_number_generator(number: int, digits: set[int]):  # type: ignore
     if len(digits) == 0:
         yield number
         return
@@ -13,7 +13,7 @@ def _pandigital_number_generator(number: int, digits: set[int]): # type: ignore
         yield from _pandigital_number_generator(number=temp_number, digits=temp_digits)
 
 
-def pandigital_number_generator(): # type: ignore
+def pandigital_number_generator():  # type: ignore
     digits = {1, 2, 3, 4, 5, 6, 7, 8, 9}
     for digit in digits:
         temp_digits = digits.copy()
@@ -27,7 +27,6 @@ def get_digit(number: int, index: int, lenght: int = NUMBER_LENGHT) -> int:
         return number // (10 ** (lenght - 1))
     number %= 10 ** (lenght - 1)
     return get_digit(number=number, index=index - 1, lenght=lenght - 1)
-    
 
 
 def is_by_two(number: int) -> bool:
@@ -35,7 +34,11 @@ def is_by_two(number: int) -> bool:
 
 
 def is_by_three(number: int) -> bool:
-    return (get_digit(number=number, index=2) + get_digit(number=number, index=3) + get_digit(number=number, index=4)) % 3 == 0
+    return (
+        get_digit(number=number, index=2)
+        + get_digit(number=number, index=3)
+        + get_digit(number=number, index=4)
+    ) % 3 == 0
 
 
 def is_by_five(number: int) -> bool:
@@ -72,15 +75,19 @@ def is_by_seventeen(number: int) -> bool:
 
 def is_sub_string_divisibility(number: int) -> bool:
     return (
-        is_by_two(number=number) and is_by_three(number=number) and is_by_five(number=number) and
-        is_by_seven(number=number) and is_by_eleven(number=number) and is_by_thirteen(number=number) and
-        is_by_seventeen(number=number)        
+        is_by_two(number=number)
+        and is_by_three(number=number)
+        and is_by_five(number=number)
+        and is_by_seven(number=number)
+        and is_by_eleven(number=number)
+        and is_by_thirteen(number=number)
+        and is_by_seventeen(number=number)
     )
 
 
 total_sum = 0
-for number in pandigital_number_generator(): # type: ignore
-    if is_sub_string_divisibility(number=number): # type: ignore
-        total_sum += number # type: ignore
+for number in pandigital_number_generator():  # type: ignore
+    if is_sub_string_divisibility(number=number):  # type: ignore
+        total_sum += number  # type: ignore
 
-print(total_sum) # type: ignore
+print(total_sum)  # type: ignore

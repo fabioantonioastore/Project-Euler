@@ -76,14 +76,7 @@ def is_valid(n: int, function: int) -> bool:
 def map_figurate_numbers_by_first_two_digits() -> dict[int, dict[int, set[int]]]:
     figurates: dict[int, dict[int, set[int]]] = {}
     for i in range(10, 100):
-        figurates[i] = {
-            3: set(),
-            4: set(),
-            5: set(),
-            6: set(),
-            7: set(),
-            8: set()
-        }
+        figurates[i] = {3: set(), 4: set(), 5: set(), 6: set(), 7: set(), 8: set()}
         for j in range(100):
             temp = i * 100
             temp += j
@@ -115,12 +108,16 @@ def get_first_two_digits(n: int) -> int:
     return ((n // 1_000) * 10) + ((n % 1_000) // 100)
 
 
-def _get_ordered_set(ordered_set: list[int], remains: set[int], items: dict[int, dict[int, set[int]]]): # type: ignore
+def _get_ordered_set(ordered_set: list[int], remains: set[int], items: dict[int, dict[int, set[int]]]):  # type: ignore
     if len(remains) == 0:
         yield ordered_set
     if len(remains) == 1:
-        number = (get_last_two_digits(n=ordered_set[-1]) * 100) + get_first_two_digits(n=ordered_set[0])
-        if is_four_digit_number(n=number) and is_valid(n=number, function=remains.pop()):
+        number = (get_last_two_digits(n=ordered_set[-1]) * 100) + get_first_two_digits(
+            n=ordered_set[0]
+        )
+        if is_four_digit_number(n=number) and is_valid(
+            n=number, function=remains.pop()
+        ):
             ordered_set.append(number)
             yield ordered_set
             return
@@ -141,18 +138,21 @@ def _get_ordered_set(ordered_set: list[int], remains: set[int], items: dict[int,
             temp_remains.remove(remain)
             temp_ordered_set = ordered_set.copy()
             temp_ordered_set.append(number)
-            yield from _get_ordered_set(ordered_set=temp_ordered_set, remains=temp_remains, items=items)
+            yield from _get_ordered_set(
+                ordered_set=temp_ordered_set, remains=temp_remains, items=items
+            )
 
 
-
-def get_ordered_set(): # type: ignore
+def get_ordered_set():  # type: ignore
     items = map_figurate_numbers_by_first_two_digits()
     for i in range(10, 100):
         for number in items[i][8]:
-            yield from _get_ordered_set(ordered_set=[number], remains={7, 6, 5, 4, 3}, items=items)
+            yield from _get_ordered_set(
+                ordered_set=[number], remains={7, 6, 5, 4, 3}, items=items
+            )
 
 
-for ordered_set in get_ordered_set(): # type: ignore
+for ordered_set in get_ordered_set():  # type: ignore
     if ordered_set is not None:
-        print(sum(ordered_set)) # type: ignore
+        print(sum(ordered_set))  # type: ignore
         break
